@@ -1,0 +1,735 @@
+/* ===== SMOOTH SCROLL ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== BODY ===== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: white;
+    overflow-x: hidden;
+}
+
+/* ===== HINTERGRUND ICONS ===== */
+.background-icons {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
+.icon {
+    position: absolute;
+    width: 80px;
+    opacity: 0.07;
+    filter: grayscale(100%);
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Float Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(10deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+/* Icon Positionen */
+.i1 {
+    top: 5%;
+    left: 5%;
+    animation-duration: 5s;
+    animation-delay: 0s;
+}
+
+.i2 {
+    top: 12%;
+    left: 35%;
+    animation-duration: 6s;
+    animation-delay: 1s;
+}
+
+.i3 {
+    top: 8%;
+    left: 70%;
+    animation-duration: 5.5s;
+    animation-delay: 2s;
+}
+
+.i4 {
+    top: 30%;
+    left: 10%;
+    animation-duration: 6.2s;
+    animation-delay: 0.5s;
+}
+
+.i5 {
+    top: 40%;
+    left: 60%;
+    animation-duration: 5.8s;
+    animation-delay: 1.5s;
+}
+
+.i6 {
+    top: 60%;
+    left: 20%;
+    animation-duration: 6.1s;
+    animation-delay: 0.7s;
+}
+
+.i7 {
+    top: 65%;
+    left: 45%;
+    animation-duration: 5.7s;
+    animation-delay: 1.2s;
+}
+
+.i8 {
+    top: 55%;
+    left: 75%;
+    animation-duration: 6.3s;
+    animation-delay: 0.9s;
+}
+
+.i9 {
+    top: 80%;
+    left: 15%;
+    animation-duration: 5.6s;
+    animation-delay: 1.4s;
+}
+
+.i10 {
+    top: 85%;
+    left: 50%;
+    animation-duration: 6s;
+    animation-delay: 0.3s;
+}
+
+.i11 {
+    top: 78%;
+    left: 80%;
+    animation-duration: 5.9s;
+    animation-delay: 1s;
+}
+
+/* ===== HEADER ===== */
+header {
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo-zone {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* ===== NAVIGATION ===== */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav a {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    padding: 5px 0;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #333;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+/* Such-Icon */
+.search-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#site-search {
+    display: none;
+    /* erst unsichtbar */
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.search-wrapper.active #site-search {
+    display: inline-block;
+}
+
+#search-btn img {
+    width: 24px;
+    cursor: pointer;
+}
+
+
+.search-icon img {
+    width: 22px;
+    opacity: 0.7;
+}
+
+.search-icon img:hover {
+    opacity: 1;
+}
+
+#site-search {
+    display: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px;
+    width: 200px;
+}
+
+.search-wrapper.active #site-search {
+    display: inline-block;
+}
+
+#search-btn img {
+    width: 24px;
+    cursor: pointer;
+}
+
+#search-suggestions {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    width: 200px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+}
+
+#search-suggestions li {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#search-suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    margin-left: 20px;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+}
+
+/* ===== CONTENT SECTIONS ===== */
+.content-section {
+    padding: 120px 40px;
+    max-width: 900px;
+    margin: auto;
+}
+
+#home h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#home p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin-top: 20px;
+}
+
+#contact-form label {
+    font-weight: 600;
+}
+
+#contact-form input,
+#contact-form textarea,
+#contact-form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+#contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+#contact-form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
+    background-color: #555;
+}
+
+.feedback {
+    color: red;
+    font-size: 0.9rem;
+}
+
+.required {
+    color: red;
+}
+
+
+section {
+    scroll-margin-top: 100px;
+    /* Höhe deines Headers */
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+#contact-form label {
+    font-weight: 600;
+}
+
+#contact-form input,
+#contact-form textarea,
+#contact-form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#contact-form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
+    background-color: #555;
+}
+
+.feedback {
+    font-size: 0.95rem;
+}
+
+.required {
+    color: red;
+}
+
+/* Zwei-Spalten Layout für Name + Telefon + Anschrift optional */
+@media (min-width: 600px) {
+    #contact-form .row {
+        display: flex;
+        gap: 10px;
+    }
+
+    #contact-form .row input {
+        flex: 1;
+    }
+}
+
+/* ===== FOOTER ===== */
+.bottom {
+    background: #333;
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.bottom {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: auto;
+    gap: 20px;
+}
+
+.footer-left,
+.footer-right {
+    flex: 1 1 300px;
+}
+
+.footer-left p,
+.footer-right ul {
+    margin: 5px 0;
+}
+
+/* Footer Links */
+.bottom a {
+    color: #fff;
+    /* Weiß */
+    text-decoration: none;
+    /* Optional: keine Unterstreichung */
+}
+
+.bottom a:hover {
+    color: #ccc;
+    /* Optional: Hellgrau beim Hover */
+}
+
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-right ul li {
+    margin: 5px 0;
+}
+
+.footer-right ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-right ul li a:hover {
+    color: #ccc;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.bottom {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.bottom a {
+    color: #fff;
+    /* Weiß für Links */
+    text-decoration: none;
+    /* Keine Unterstreichung */
+    margin: 0 5px;
+}
+
+.bottom a:hover {
+    color: #ccc;
+    /* Hellgrau beim Hover */
+}
+
+/* ===== GALERIE ===== */
+.gallery-section {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+/* ===== GALERIE ===== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    /* Quadrat erzwingen */
+    aspect-ratio: 1 / 1;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* wichtig: füllt den Block, schneidet falls nötig */
+    object-position: center;
+    /* zentriert das Bild */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+    /* sanftes Zoom bei Hover */
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+.lightbox-nav span {
+    position: absolute;
+    top: 50%;
+    font-size: 3rem;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(-50%);
+}
+
+.lightbox-nav .prev {
+    left: 20px;
+}
+
+.lightbox-nav .next {
+    right: 20px;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .main-nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-nav.active ul {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .gallery-section {
+        padding: 40px 20px;
+    }
+
+    .overlay {
+        font-size: 14px;
+    }
+}
+
+.impressum-info {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.impressum-info a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.impressum-info a:hover {
+    color: #aaa;
+    /* hellgrau beim Hover */
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* vertikal zentrieren */
+    align-items: center;
+    /* horizontal zentrieren */
+    min-height: 80vh;
+    /* Höhe für mittige Platzierung */
+    text-align: center;
+    /* Text zentrieren */
+    padding: 40px;
+}
+
+.home-slogan {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.home-services {
+    font-size: 1.2rem;
+    color: #555;
+    letter-spacing: 1px;
+}

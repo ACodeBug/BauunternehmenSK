@@ -1,84 +1,322 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine Webseite</title>
-    <meta name="description" content="Eine klassische HTML-Startseite">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background: #222;
-            color: #fff;
-            padding: 1.5rem;
-            text-align: center;
-        }
-        nav {
-            background: #444;
-            padding: 0.5rem;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            margin: 0 1rem;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 1rem;
-            background: #fff;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: #222;
-            color: #fff;
-            margin-top: 2rem;
-        }
-    </style>
+    <title>Bauunternehmen Keser</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+    <!-- Hintergrund Icons -->
+    <div class="background-icons">
+        <img src="../icons/icon1.png" class="icon i1" alt="">
+        <img src="../icons/icon2.png" class="icon i2" alt="">
+        <img src="../icons/icon3.png" class="icon i3" alt="">
+        <img src="../icons/icon4.png" class="icon i4" alt="">
+        <img src="../icons/icon5.png" class="icon i5" alt="">
+        <img src="../icons/icon6.png" class="icon i6" alt="">
+        <img src="../icons/icon7.png" class="icon i7" alt="">
+        <img src="../icons/icon8.png" class="icon i8" alt="">
+        <img src="../icons/icon9.png" class="icon i9" alt="">
+        <img src="../icons/icon10.png" class="icon i10" alt="">
+        <img src="../icons/icon11.png" class="icon i11" alt="">
+    </div>
+
+    <!-- HEADER / LOGO & NAV -->
     <header>
-        <h1>Willkommen auf meiner Webseite</h1>
-        <p>Eine klassische index.html</p>
+
+        <!-- Logo -->
+        <div class="logo-zone">
+            <h1>Bauunternehmen Keser</h1>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#leistungen">Unsere Leistungen</a></li>
+                <li><a href="#ueber-uns">Mein Weg im Bau</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="gallerie.html">Gallerie</a></li>
+            </ul>
+
+            <!-- Such Icon -->
+            <!--
+            <div class="search-wrapper">
+                <input type="text" id="site-search" placeholder="Suchen..." autocomplete="off" />
+                <button id="search-btn">
+                    <img src="../icons/icon_suche.png" alt="Suche">
+                </button>
+                <ul id="search-suggestions"></ul>
+            </div>
+            -->
+            <!-- Hamburger Mobile -->
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+
     </header>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Über mich</a>
-        <a href="#">Projekte</a>
-        <a href="#">Kontakt</a>
-    </nav>
+    <!-- HOME SECTION -->
 
-    <main>
-        <h2>Hallo 👋</h2>
+    <section id="home" class="content-section">
+        <h2>Willkommen bei Bauunternehmen Keser</h2>
+        <p class="home-slogan">Vom Keller bis zum Dach – wir machen's.</p>
+        <p class="home-services">Sanierung · Ausbau · Mauerer · Putz · Fliesen · Garten</p>
+    </section>
+
+
+
+    <section id="leistungen" class="content-section">
+        <h2>Unsere Leistungen</h2>
+
+        <h3>Hochbau & Rohbau</h3>
         <p>
-            Das ist eine einfache, klassische HTML-Startseite.
-            Sie eignet sich perfekt für GitHub Pages, kleine Projekte oder als Basis für ein Portfolio.
+            Als kleines, inhabergeführtes Bauunternehmen realisieren wir Hochbau- und Rohbauprojekte mit persönlichem
+            Einsatz und kurzen Entscheidungswegen.
+            Bei uns gibt es keine Umwege über mehrere Abteilungen – der Unternehmer selbst ist auf der Baustelle
+            präsent.
+            Durch langjährige Erfahrung vom Maurerhandwerk bis zum geprüften Polier im Hochbau garantieren wir eine
+            saubere Ausführung, klare Abläufe und verlässliche Termine – auch bei kleineren und mittleren Bauvorhaben.
         </p>
 
-        <h3>Was du hier machen kannst</h3>
-        <ul>
-            <li>HTML lernen</li>
-            <li>CSS anpassen</li>
-            <li>Deine Projekte präsentieren</li>
-        </ul>
-    </main>
+        <h3>Baustellenkoordination & Bauleitung</h3>
+        <p>
+            Gerade bei kleinen Teams ist Struktur entscheidend. Wir übernehmen die Koordination von Mitarbeitern und
+            beteiligten Gewerken und sorgen dafür, dass Abläufe reibungslos ineinandergreifen.
+            Kurze Kommunikationswege, schnelle Entscheidungen und direkte Verantwortung sorgen für Effizienz und
+            Transparenz – ohne Konzernbürokratie.
+        </p>
 
-    <footer>
-        <p>&copy; 2025 – Dein Name</p>
+        <h3>Ausführung & Qualitätssicherung</h3>
+        <p>
+            Qualität entsteht durch Nähe. Wir sind selbst vor Ort, kontrollieren die Ausführung laufend und reagieren
+            sofort, wenn Anpassungen notwendig sind.
+            Das Ergebnis ist eine mängelarme, saubere Bauweise, auf die man sich verlassen kann. Unsere Kunden haben
+            einen festen Ansprechpartner – vom ersten Gespräch bis zur Fertigstellung.
+        </p>
+
+        <h3>Warum ein kleines Unternehmen?</h3>
+        <ul>
+            <li>Persönliche Betreuung statt anonymer Abläufe</li>
+            <li>Direkte Verantwortung des Inhabers</li>
+            <li>Kurze Entscheidungswege</li>
+            <li>Flexibilität auf der Baustelle</li>
+            <li>Ehrliche Kommunikation ohne Umwege</li>
+        </ul>
+        <p>Wir sind bewusst kein Konzern. Wir sind ein Betrieb, der Verantwortung übernimmt – jeden Tag.</p>
+    </section>
+
+
+    <!-- ÜBER UNS -->
+    <section id="ueber-uns" class="content-section">
+
+        <h3>Mein Weg im Bau</h3>
+
+        <p>Mein beruflicher Weg begann 2000 mit der Maurerausbildung. Von Anfang an stand für mich fest: Handwerk heißt
+            Verantwortung übernehmen – für Qualität, Termine und Menschen.</p>
+
+        <p>In den darauffolgenden Jahren war ich auf unterschiedlichsten Baustellen tätig und übernahm 2009 als
+            Vorarbeiter erstmals Führungsverantwortung im täglichen Bauablauf.</p>
+
+        <p>2017 folgte die Weiterbildung zum Werkpolier. Der Fokus lag nun auf Organisation, Koordination und
+            Qualitätssicherung ganzer Bauabschnitte – an der Schnittstelle zwischen Bauleitung und Ausführung.</p>
+
+        <p>2023 schloss ich meine fachliche Entwicklung mit dem Abschluss als Geprüfter Polier Hochbau ab.</p>
+
+        <p>Der heutige Schritt ist die Selbstständigkeit: die konsequente Verbindung aus handwerklicher Erfahrung,
+            Führungskompetenz und unternehmerischem Denken.</p>
+
+        <p>Jede Station meines Werdegangs habe ich nicht nur erlernt, sondern gelebt – vom Handwerk bis zur
+            Gesamtverantwortung auf der Baustelle. Ziel ist eine zuverlässige, strukturierte und qualitativ hochwertige
+            Umsetzung von Bauprojekten.</p>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" class="content-section">
+        <h2>Kontakt & Beratung</h2>
+        <p>
+            Wir freuen uns darauf, Ihr Bauprojekt zu realisieren. Kontaktieren Sie uns gerne für ein unverbindliches
+            Beratungsgespräch. Unser Team steht bereit, um Ihre Fragen zu beantworten, Lösungen vorzuschlagen und
+            gemeinsam den Weg zu Ihrem Wunschprojekt zu planen.
+        </p>
+        <p>
+            Sie erreichen uns telefonisch, per E-Mail oder über unser Kontaktformular. Vereinbaren Sie einen Termin vor
+            Ort oder in unserem Büro und erleben Sie, wie wir Ihre Ideen in die Realität umsetzen. Vertrauen,
+            Transparenz und höchste Qualität sind die Basis unserer Zusammenarbeit.
+        </p>
+
+        <!-- Kontaktformular -->
+        <form id="contact-form" novalidate>
+            <label for="subject">Betreff:</label>
+            <input type="text" id="subject" name="subject" placeholder="Betreff" value="Terminvereinbarung">
+
+            <label for="name">Name: <span class="required">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Ihr Name" required pattern=".{2,}">
+
+            <label for="address">Anschrift:</label>
+            <input type="text" id="address" name="address" placeholder="Ihre Anschrift">
+
+            <label for="phone">Telefonnummer:</label>
+            <input type="tel" id="phone" name="phone" placeholder="z.B. 0123456789" pattern="^[0-9\s\+\-]{6,15}$">
+
+            <label for="message">Nachricht:</label>
+            <textarea id="message" name="message" maxlength="500"
+                placeholder="Ihre Nachricht... (max. 500 Zeichen)"></textarea>
+
+            <!-- Datei-Upload optional
+            <label for="file">Datei anhängen:</label>
+            <input type="file" id="file" name="file"> -->
+
+            <button type="submit">Absenden</button>
+            <p id="form-feedback" class="feedback"></p>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bottom">
+        <div class="footer-container">
+            <p>© 2026 Bauunternehmen Keser</p>
+            <p>
+                <a href="impressum.html">Impressum</a> |
+                <a href="datenschutz.html">Datenschutz</a>
+            </p>
+        </div>
     </footer>
 
+
+    <!-- JS: Navigation, Smooth Scroll, Kontaktformular -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.querySelector('.main-nav');
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.main-nav a');
+        const headerOffset = 100;
+
+        // Hamburger Toggle
+        hamburger.addEventListener('click', () => nav.classList.toggle('active'));
+
+        // Active-Link beim Scrollen
+        function setActiveLink() {
+            const scrollPos = window.scrollY + headerOffset + 10;
+            let found = false;
+            sections.forEach(section => {
+                if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    const currentLink = Array.from(navLinks).find(l => l.getAttribute('href') === '#' + section.id);
+                    if (currentLink) currentLink.classList.add('active');
+                    found = true;
+                }
+            });
+            if (!found) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                const homeLink = document.querySelector('.main-nav a[href="#home"]');
+                if (homeLink) homeLink.classList.add('active');
+            }
+        }
+        window.addEventListener('scroll', setActiveLink);
+        setActiveLink();
+
+        // Smooth Scroll für interne Links
+        navLinks.forEach(link => {
+            if (link.getAttribute('href').startsWith('#')) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        const offsetPos = targetSection.offsetTop - headerOffset;
+                        window.scrollTo({ top: offsetPos, behavior: 'smooth' });
+                    }
+                });
+            }
+        });
+
+        // Suchfeld
+        const searchWrapper = document.querySelector('.search-wrapper');
+        const searchInput = document.getElementById('site-search');
+        const searchBtn = document.getElementById('search-btn');
+        const suggestions = document.getElementById('search-suggestions');
+
+        searchBtn.addEventListener('click', () => {
+            searchWrapper.classList.toggle('active');
+            if (searchWrapper.classList.contains('active')) searchInput.focus();
+            else searchInput.value = '';
+        });
+
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            suggestions.innerHTML = '';
+            if (!query) return;
+            sections.forEach(section => {
+                if (section.innerText.toLowerCase().includes(query)) {
+                    const li = document.createElement('li');
+                    li.textContent = section.querySelector('h2').innerText;
+                    li.addEventListener('click', () => {
+                        const offsetPos = section.offsetTop - headerOffset;
+                        window.scrollTo({ top: offsetPos, behavior: 'smooth' });
+                        searchWrapper.classList.remove('active');
+                        searchInput.value = '';
+                        suggestions.style.display = 'none';
+                    });
+                    suggestions.appendChild(li);
+                }
+            });
+            suggestions.style.display = suggestions.children.length ? 'block' : 'none';
+        });
+
+        // Kontaktformular
+        const form = document.getElementById('contact-form');
+        const feedback = document.getElementById('form-feedback');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            feedback.textContent = '';
+            feedback.style.color = 'red';
+
+            const subjectInput = form.subject.value.trim();
+            const name = form.name.value.trim();
+            const address = form.address.value.trim();
+            const phone = form.phone.value.trim();
+            const message = form.message.value.trim();
+
+            if (!name || name.length < 2) {
+                feedback.style.color = 'green';
+                feedback.textContent = "Bitte Ihren Namen eingeben (mindestens 2 Zeichen).";
+                return;
+            }
+
+            const phonePattern = /^[0-9\s\+\-]{6,15}$/;
+            if (phone && !phonePattern.test(phone)) {
+                feedback.textContent = "Bitte eine gültige Telefonnummer eingeben.";
+                return;
+            }
+
+            if (message.length > 500) {
+                feedback.textContent = "Die Nachricht darf maximal 500 Zeichen enthalten.";
+                return;
+            }
+
+            const subject = `${subjectInput || 'Terminvereinbarung'} – ${name}`;
+            let mailBody = `Sehr geehrter Herr Serdar Keser,\n\n`;
+            if (message) mailBody += message + '\n\n';
+            if (address) mailBody += `Anschrift: ${address}\n`;
+            if (phone) mailBody += `Telefon: ${phone}\n`;
+            mailBody += `Mit freundlichen Grüßen,\n${name}`;
+
+            const mailtoLink = `mailto:Bauunternehmen.Keser@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailBody)}`;
+            window.location.href = mailtoLink;
+
+            feedback.style.color = 'green';
+            feedback.textContent = "E-Mail wird vorbereitet...";
+        });
+    </script>
+
 </body>
+
 </html>

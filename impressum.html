@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Impressum – Bauunternehmen Keser</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Content-Links: schwarz, Hover hellgrau, keine Unterlinie */
+        .content-section a {
+            color: black;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .content-section a:hover {
+            color: #aaa;
+        }
+
+        /* Footer-Links: weiß, Hover hellgrau, keine Unterlinie */
+        .bottom a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .bottom a:hover {
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER / LOGO & NAV -->
+    <header>
+        <div class="logo-zone">
+            <h1>Impressum</h1>
+        </div>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#leistungen">Unsere Leistungen</a></li>
+                <li><a href="index.html#ueber-uns">Mein Weg im Bau</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+                <li><a href="gallerie.html" class="active">Gallerie</a></li>
+            </ul>
+
+            <!-- Suchfeld -->
+            <!--
+            <div class="search-wrapper">
+                <input type="text" id="site-search" placeholder="Suchen..." autocomplete="off" />
+                <button id="search-btn">
+                    <img src="../icons/icon_suche.png" alt="Suche">
+                </button>
+                <ul id="search-suggestions"></ul>
+            </div>
+                -->
+            <!-- Hamburger Mobile -->
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- IMPRESSUM CONTENT -->
+    <section class="content-section">
+        <h2>Verantwortlich für Inhalte</h2>
+        <div class="impressum-info">
+            <p><strong>Bauunternehmen Serdar Keser</strong></p>
+            <p>Eigenheimstraße 42a<br>85764 Oberschleißheim</p>
+            <p>Email: <a href="mailto:Bauunternehmen.Keser@gmail.com">Bauunternehmen.Keser@gmail.com</a></p>
+            <p>Staatlich Geprüfter Hochbaupolier</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bottom">
+        <div class="footer-container">
+            <p>© 2026 Bauunternehmen Keser</p>
+            <p>
+                <a href="impressum.html">Impressum</a> |
+                <a href="datenschutz.html">Datenschutz</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JS: Hamburger + Suche -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.querySelector('.main-nav');
+        hamburger.addEventListener('click', () => nav.classList.toggle('active'));
+
+        const searchWrapper = document.querySelector('.search-wrapper');
+        const searchInput = document.getElementById('site-search');
+        const searchBtn = document.getElementById('search-btn');
+        const suggestions = document.getElementById('search-suggestions');
+
+        searchBtn.addEventListener('click', () => {
+            searchWrapper.classList.toggle('active');
+            if (searchWrapper.classList.contains('active')) searchInput.focus();
+            else { searchInput.value = ''; suggestions.style.display = 'none'; }
+        });
+    </script>
+
+</body>
+
+</html>

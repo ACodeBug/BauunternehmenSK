@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gallerie – Bauunternehmen Keser</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .lightbox .close,
+        .lightbox .prev,
+        .lightbox .next {
+            position: absolute;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;
+            font-size: 3rem;
+            padding: 10px;
+        }
+
+        .lightbox .close {
+            top: 20px;
+            right: 30px;
+        }
+
+        .lightbox .prev {
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+        }
+
+        .lightbox .next {
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="gallery-header">
+        <div class="logo-zone">
+            <h1>Gallerie</h1>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#leistungen">Unsere Leistungen</a></li>
+                <li><a href="index.html#ueber-uns">Mein Weg im Bau</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+                <li><a href="gallerie.html" class="active">Gallerie</a></li>
+            </ul>
+            <!--
+            <div class="search-wrapper">
+                <input type="text" id="site-search" placeholder="Suchen..." autocomplete="off" />
+                <button id="search-btn"><img src="../icons/icon_suche.png" alt="Suche"></button>
+                <ul id="search-suggestions"></ul>
+            </div>
+            -->
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="../icons/icon1.png" alt="Projekt 1"><div class="overlay">Projekt 1</div></div>
+            <div class="gallery-item"><img src="../icons/icon2.png" alt="Projekt 2"><div class="overlay">Projekt 2</div></div>
+            <div class="gallery-item"><img src="../icons/icon3.png" alt="Projekt 3"><div class="overlay">Projekt 3</div></div>
+            <div class="gallery-item"><img src="../icons/icon4.png" alt="Projekt 4"><div class="overlay">Projekt 4</div></div>
+            <div class="gallery-item"><img src="../icons/icon5.png" alt="Projekt 5"><div class="overlay">Projekt 5</div></div>
+            <div class="gallery-item"><img src="../icons/icon6.png" alt="Projekt 6"><div class="overlay">Projekt 6</div></div>
+            <div class="gallery-item"><img src="../icons/bau_test1.jpg" alt="Projekt 7"><div class="overlay">Projekt 7</div></div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-img" src="" alt="Vollbild">
+        <span class="prev">&#10094;</span>
+        <span class="next">&#10095;</span>
+    </div>
+
+    <footer class="bottom">
+        <div class="footer-container">
+            <p>© 2026 Bauunternehmen Keser</p>
+            <p>
+                <a href="impressum.html">Impressum</a> |
+                <a href="datenschutz.html">Datenschutz</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menü
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.querySelector('.main-nav');
+        hamburger.addEventListener('click', () => nav.classList.toggle('active'));
+
+        // ===== GALERIE LIGHTBOX =====
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.querySelector('.lightbox-img');
+        const closeBtn = document.querySelector('.lightbox .close');
+        const prevBtn = document.querySelector('.lightbox .prev');
+        const nextBtn = document.querySelector('.lightbox .next');
+
+        let currentIndex = 0;
+
+        // Lightbox öffnen
+        galleryItems.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = img.src;
+                currentIndex = index;
+            });
+        });
+
+        // Lightbox schließen
+        closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) lightbox.style.display = 'none';
+        });
+
+        // Vorheriges Bild
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+            lightboxImg.src = galleryItems[currentIndex].src;
+        });
+
+        // Nächstes Bild
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % galleryItems.length;
+            lightboxImg.src = galleryItems[currentIndex].src;
+        });
+
+        // Pfeiltasten
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') prevBtn.click();
+                if (e.key === 'ArrowRight') nextBtn.click();
+                if (e.key === 'Escape') lightbox.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
